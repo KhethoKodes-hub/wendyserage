@@ -75,8 +75,6 @@
 
     /* ═══════════════════════════════════════════════════════
    SERAGE FARMS — CREATIVE ADDITIONS ONLY
-   Paste this inside a <style> tag just before </head>
-   in your original index.html. Nothing else changes.
 ═══════════════════════════════════════════════════════ */
 
 /* 1. SECTION BACKGROUND PATTERNS */
@@ -248,6 +246,158 @@ a.btn-cta:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(42,74,26,0.2);
 }
+
+/* ═══════════════════════════════════════════════════════
+   NEW ADDITIONS ONLY — Hero title + section backgrounds
+═══════════════════════════════════════════════════════ */
+
+/* ── HERO TITLE ── */
+.serage-hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.serage-hero-title .title-line-1 {
+  display: block;
+  font-family: 'Marcellus', serif;
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.55);
+  opacity: 0;
+  animation: heroTitleReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.serage-hero-title .title-line-2 {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: heroSubReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+.serage-hero-title .title-accent {
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(141,200,74,0.9), transparent);
+  margin: 0.6rem auto 0.7rem;
+  animation: heroLineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+@keyframes heroTitleReveal {
+  0%   { opacity: 0; transform: translateY(40px) skewY(2deg); filter: blur(8px); }
+  100% { opacity: 1; transform: translateY(0) skewY(0deg); filter: blur(0); }
+}
+
+@keyframes heroSubReveal {
+  0%   { opacity: 0; transform: translateY(20px); letter-spacing: 0.25em; }
+  100% { opacity: 1; transform: translateY(0);    letter-spacing: 0.55em; }
+}
+
+@keyframes heroLineGrow {
+  0%   { width: 0; opacity: 0; }
+  100% { width: clamp(120px, 30vw, 260px); opacity: 1; }
+}
+
+/* ── SECTION BACKGROUND IMAGES ── */
+
+/* Services section — overhead green field */
+#services.services.section {
+  position: relative;
+}
+#services.services.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1600&q=60&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+#services.services.section > * { position: relative; z-index: 1; }
+
+/* About-3 section — lush farm rows */
+#about-3.about-3.section {
+  position: relative;
+}
+#about-3.about-3.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1600&q=60&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 0;
+}
+#about-3.about-3.section > * { position: relative; z-index: 1; }
+
+/* Services-2 dark section — soil/harvest texture */
+#services-2.services-2.section.dark-background {
+  position: relative;
+}
+#services-2.services-2.section.dark-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=60&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+#services-2.services-2.section.dark-background > * { position: relative; z-index: 1; }
+
+/* About section dark — sunrise field glow */
+#about.about.section {
+  position: relative;
+}
+#about.about.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=60&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+#about.about.section .content { position: relative; z-index: 1; }
+
+/* Footer — subtle earth texture */
+#footer.footer.dark-background {
+  position: relative;
+}
+#footer.footer.dark-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600&q=50&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+#footer.footer.dark-background > * { position: relative; z-index: 1; }
   </style>
 </head>
 
@@ -265,14 +415,6 @@ a.btn-cta:hover {
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
-          <!--<li class="dropdown"><a href="#"><span>Our Impact</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Youth Training</a></li>
-              <li><a href="#">Student Placements</a></li>
-              <li><a href="#">Community Giving</a></li>
-              <li><a href="#">Partnerships</a></li>
-            </ul>
-          </li>-->
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -291,19 +433,10 @@ a.btn-cta:hover {
         <!-- Slide 1: Background Video -->
         <div class="carousel-item active video-item">
           <div class="hero-video-slide">
-            <!--<video autoplay muted loop playsinline poster="assets/img/hero_1.jpg">-->
-              <!--
-                Replace the src below with your actual farm video file, e.g.:
-                  src="assets/video/serage-farm.mp4"
-                Supported formats: mp4 (recommended), webm
-                The poster image shows while the video loads.
-              -->
-              <!--<source src="assets/img/assets/seravid2.mp4" type="video/mp4">
-            </video>-->
-            <!--<div class="video-overlay"></div>-->
+            <video autoplay muted loop playsinline poster="assets/img/assets/cabbagefarm4.png">
+              <!--<source src="assets/img/assets/seravid2.mp4" type="video/mp4">-->
+            </video>
             <div class="carousel-container">
-              <!--<h2>From Collecting Cans to Cultivating Hope</h2>
-              <p>Serage Holdings Pty Ltd — growing farmers, feeding communities, and building futures across South Africa and beyond.</p>-->
             </div>
           </div>
         </div><!-- End Carousel Item 1 (Video) -->
@@ -311,34 +444,26 @@ a.btn-cta:hover {
         <div class="carousel-item">
           <img src="assets/img/hero_3.jpg" alt="Serage Farms cabbage fields">
           <div class="carousel-container">
-            <h2>Fresh Cabbages Grown With Pride</h2>
-            <p>From our fields in Mbobo, Polokwane, we produce quality vegetables that feed families and sustain livelihoods.</p>
+            <!--<h2>Fresh Cabbages Grown With Pride</h2>-->
+            <!--<p>From our fields in Mbobo, Polokwane, we produce quality vegetables that feed families and sustain livelihoods.</p>-->
           </div>
         </div><!-- End Carousel Item 2 -->
 
         <div class="carousel-item">
           <img src="assets/img/assets/hero2.png" alt="Youth farming training">
           <div class="carousel-container">
-            <h2>Training the Next Generation of Farmers</h2>
-            <p>Monthly training sessions drawing participants from all nine provinces of South Africa, Botswana, and Zimbabwe.</p>
+            <!--<h2>Training the Next Generation of Farmers</h2>-->
+            <!--<p>Monthly training sessions drawing participants from all nine provinces of South Africa, Botswana, and Zimbabwe.</p>-->
           </div>
         </div><!-- End Carousel Item 3 -->
 
         <div class="carousel-item">
-          <img src="assets/img/assets/seimpact7.png" alt="Community empowerment">
+          <img src="assets/img/assets/cabbagefarm2.png" alt="Community empowerment">
           <div class="carousel-container">
-            <h2>Farming as a Path to Dignity</h2>
-            <p>Mentoring unemployed youth, hosting agriculture students, and supporting local crèches — because our success is shared.</p>
+            <!--<h2>Farming as a Path to Dignity</h2>-->
+            <!--<p>Mentoring unemployed youth, hosting agriculture students, and supporting local crèches — because our success is shared.</p>-->
           </div>
         </div><!-- End Carousel Item 4 -->
-
-       <!---<div class="carousel-item">
-          <img src="assets/img/hero_5.jpg" alt="Serage Holdings community">
-          <div class="carousel-container">
-            <h2>Greatness Grows From Small Beginnings</h2>
-            <p>What started with collecting cans for seedling money is now a nationally recognised agricultural hub — and we're just getting started.</p>
-          </div>
-        </div>End Carousel Item 5 -->
 
         <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -350,6 +475,13 @@ a.btn-cta:hover {
 
         <ol class="carousel-indicators"></ol>
 
+      </div>
+
+      <!-- ── HERO TITLE (NEW) ── -->
+      <div class="serage-hero-title">
+        <span class="title-line-1">Serage Farms</span>
+        <span class="title-accent"></span>
+        <span class="title-line-2">Growing Farmers &nbsp;·&nbsp; Feeding Communities</span>
       </div>
 
     </section><!-- /Hero Section -->
@@ -575,9 +707,6 @@ a.btn-cta:hover {
         <div class="row gy-4 justify-content-between align-items-center">
           <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
             <img src="assets/img/assets/seimpact7.png" alt="Serage Farms training session" class="img-fluid">
-            <!--<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn">
-              <span class="play"><i class="bi bi-play-fill"></i></span>
-            </a>-->
           </div>
           <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
             <h2 class="content-title mb-4">Farming Makes Lives Better</h2>
@@ -726,175 +855,6 @@ a.btn-cta:hover {
       </div>
     </section><!-- /Services 2 Section -->
 
-    <!-- Testimonials Section 
-    <section class="testimonials-12 testimonials section" id="testimonials">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>TESTIMONIALS</h2>
-        <p>Voices from our community</p>
-
-      <div class="testimonial-wrap">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 mb-4 mb-md-4">
-              <div class="testimonial">
-                <img src="assets/img/testimonials/testimonials-1.jpg" alt="Regen College student">
-                <blockquote>
-                  <p>
-                    "Before I came to Serage Farms, I had no direction. After just two weeks of training, I started my own small agro-processing business. Wendy gave me the confidence and knowledge to believe it was possible."
-                  </p>
-                </blockquote>
-                <p class="client-name">Regen College Graduate</p>
-              </div>
-            </div>
-            <div class="col-md-6 mb-4 mb-md-4">
-              <div class="testimonial">
-                <img src="assets/img/testimonials/testimonials-2.jpg" alt="Mentored youth farmer">
-                <blockquote>
-                  <p>
-                    "I used to stand at the shops with nothing to do. Wendy invited me to her plot and taught me how to farm. Today I have my own farm and I can support my family. She changed my life completely."
-                  </p>
-                </blockquote>
-                <p class="client-name">Youth Farmer, Mbobo Village</p>
-              </div>
-            </div>
-            <div class="col-md-6 mb-4 mb-md-4">
-              <div class="testimonial">
-                <img src="assets/img/testimonials/testimonials-3.jpg" alt="Tompi Seleka student">
-                <blockquote>
-                  <p>
-                    "The practical experience I gained at Serage Farms is something no classroom could fully teach me. I now understand what real commercial farming looks like and I'm ready for the industry."
-                  </p>
-                </blockquote>
-                <p class="client-name">Agriculture Student, Tompi Seleka College</p>
-              </div>
-            </div>
-            <div class="col-md-6 mb-4 mb-md-4">
-              <div class="testimonial">
-                <img src="assets/img/testimonials/testimonials-4.jpg" alt="Local guesthouse owner">
-                <blockquote>
-                  <p>
-                    "Since Wendy started her monthly training sessions, visitors come from all over South Africa. My guesthouse now has regular bookings. Her farm has brought real economic activity to our community."
-                  </p>
-                </blockquote>
-                <p class="client-name">Local Guesthouse Owner, Polokwane</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> /Testimonials Section -->
-
-    <!-- Recent Posts Section 
-    <section id="recent-posts" class="recent-posts section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Story &amp; News</h2>
-        <p>Milestones on the journey from cans to cultivating hope</p>
-
-      <div class="container">
-        <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="YK Leadership Award nomination">
-                <span class="post-date">2025</span>
-              </div>
-              <div class="post-content d-flex flex-column">
-                <h3 class="post-title">Nominated for the YK Leadership Award 2025 — National Recognition for Rural Impact</h3>
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Wendy Moshakga</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Awards</span>
-                  </div>
-                </div>
-                <hr>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="Regen College training">
-                <span class="post-date">2023</span>
-              </div>
-              <div class="post-content d-flex flex-column">
-                <h3 class="post-title">30 Young People Trained at Regen College — 2 Start Businesses Within Two Weeks</h3>
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Wendy Moshakga</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Training</span>
-                  </div>
-                </div>
-                <hr>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="post-item position-relative h-100">
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="From cans to farming">
-                <span class="post-date">2021</span>
-              </div>
-              <div class="post-content d-flex flex-column">
-                <h3 class="post-title">How Collecting Cans Became the Seed of a Farming Empire in Limpopo</h3>
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Wendy Moshakga</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Our Story</span>
-                  </div>
-                </div>
-                <hr>
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div> End post item -->
-
-        </div>
-      </div>
-
-    </section><!-- /Recent Posts Section -->
-
-    <!-- Call To Action Section 
-    <section id="call-to-action" class="call-to-action section light-background">
-      <div class="content">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <h3>Stay Connected With Serage Farms</h3>
-              <p class="opacity-50">
-                Subscribe to receive updates on training sessions, farm news, and opportunities to get involved with our community programmes.
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <form action="forms/newsletter.php" class="form-subscribe php-email-form">
-                <div class="form-group d-flex align-items-stretch">
-                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail address">
-                  <input type="submit" class="btn btn-secondary px-4" value="Subscribe">
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your subscription request has been sent. Thank you!
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>/Call To Action Section -->
-
   </main>
 
   <footer id="footer" class="footer dark-background">
@@ -1003,23 +963,16 @@ a.btn-cta:hover {
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Ensure video carousel item displays correctly with Bootstrap carousel
     document.addEventListener('DOMContentLoaded', function () {
       var videoSlide = document.querySelector('.carousel-item.video-item');
       if (videoSlide) {
-        var video = videoSlide.querySelector('video');
-        // When carousel slides back to the video item, restart playback
         var carousel = document.getElementById('hero-carousel');
         if (carousel) {
           carousel.addEventListener('slid.bs.carousel', function (e) {
             var videos = document.querySelectorAll('#hero-carousel video');
-            videos.forEach(function (v) {
-              v.pause();
-            });
+            videos.forEach(function (v) { v.pause(); });
             var activeVideo = e.relatedTarget.querySelector('video');
-            if (activeVideo) {
-              activeVideo.play();
-            }
+            if (activeVideo) { activeVideo.play(); }
           });
         }
       }
