@@ -165,6 +165,12 @@
       line-height: 1.3;
       animation: badgePulse 3s ease-in-out infinite;
       z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .se-img-badge i {
+      font-size: 1rem;
     }
     @keyframes badgePulse {
       0%,100% { box-shadow: 0 0 0 0 rgba(141,200,74,0.4); }
@@ -307,7 +313,16 @@
     }
     .se-rec-card:hover { background: rgba(141,200,74,0.06); }
     .se-rec-card:hover::before { transform: scaleX(1); }
-    .se-rec-icon { font-size: 2rem; }
+    .se-rec-icon {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .se-rec-icon i {
+      font-size: 2rem;
+      color: #8dc84a;
+    }
     .se-rec-title {
       font-family: 'Marcellus', serif;
       font-size: 1.05rem; color: #c8e8a8;
@@ -423,10 +438,11 @@
       <div class="container position-relative">
         <h1>About Us</h1>
         <nav class="breadcrumbs">
-          <ol>
+          <!--<ol>
             <li><a href="index.html">Home</a></li>
             <li class="current">About</li>
-          </ol>
+          </ol>-->
+           From collecting cans to cultivating hope — growing farmers, feeding communities, and building futures.
         </nav>
       </div>
     </div>
@@ -447,9 +463,9 @@
               For Wendy, farming has never been only about growing vegetables. It has always been about growing people, opportunities, and hope. Her farm in Limpopo is today a recognised training hub attracting participants from all nine provinces of South Africa, as well as Botswana and Zimbabwe.
             </p>
             <ul class="list-unstyled list-check">
-              <li>Founded Serage Holdings in 2021 with zero capital</li>
-              <li>Mentored unemployed youth who now run their own farms</li>
-              <li>Nominated for the YK Leadership Award 2025</li>
+              <li><i class="bi bi-check-lg me-2" style="color: #8dc84a;"></i> Founded Serage Holdings in 2021 with zero capital</li>
+              <li><i class="bi bi-check-lg me-2" style="color: #8dc84a;"></i> Mentored unemployed youth who now run their own farms</li>
+              <li><i class="bi bi-check-lg me-2" style="color: #8dc84a;"></i> Nominated for the YK Leadership Award 2025</li>
             </ul>
             <p><a href="contact.html" class="btn-cta">Get in touch</a></p>
           </div>
@@ -480,7 +496,6 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Wendy</a></li>
               <li><a href="services.html">Our Services</a></li>
-              <li><a href="#">Training Sessions</a></li>
               <li><a href="contact.html">Contact Us</a></li>
             </ul>
           </div>
@@ -612,7 +627,7 @@
       btnP.insertAdjacentHTML('beforebegin', quoteHTML);
     }
 
-    /* ── 3. IMAGE BADGE — wrap image and inject badge ── */
+    /* ── 3. IMAGE BADGE — wrap image and inject badge with icon ── */
     var img = document.getElementById('se-about-img');
     if (img) {
       var wrap = document.createElement('div');
@@ -621,7 +636,7 @@
       wrap.appendChild(img);
       var badge = document.createElement('div');
       badge.className = 'se-img-badge';
-      badge.innerHTML = 'YK Leadership<br>Award 2025';
+      badge.innerHTML = '<i class="bi bi-trophy-fill"></i> YK Leadership Award 2025';
       wrap.appendChild(badge);
     }
 
@@ -687,23 +702,23 @@
     }, { threshold: 0.15 });
     tlItems.forEach(function(el) { tlObs.observe(el); });
 
-    /* ── 5. RECOGNITION CARDS — injected after timeline ── */
+    /* ── 5. RECOGNITION CARDS — injected after timeline (with icons instead of emojis) ── */
     var recHTML = `
       <div class="se-recognition">
         <div class="se-rec-bg"></div>
         <div class="se-recognition-inner">
           <div class="se-rec-card">
-            <div class="se-rec-icon">📻</div>
+            <div class="se-rec-icon"><i class="bi bi-mic-fill"></i></div>
             <div class="se-rec-title">Thobela FM Feature</div>
             <p class="se-rec-desc">Wendy appeared on SABC's Thobela FM in March 2025, sharing her story with hundreds of thousands of listeners across Limpopo and beyond.</p>
           </div>
           <div class="se-rec-card">
-            <div class="se-rec-icon">🎙️</div>
+            <div class="se-rec-icon"><i class="bi bi-broadcast"></i></div>
             <div class="se-rec-title">Power FM 98.7</div>
             <p class="se-rec-desc">Featured on Power FM's early-morning show as an entrepreneur and founder of Serage Holdings — bringing her message of agricultural empowerment to a national audience.</p>
           </div>
           <div class="se-rec-card">
-            <div class="se-rec-icon">🏆</div>
+            <div class="se-rec-icon"><i class="bi bi-award-fill"></i></div>
             <div class="se-rec-title">YK Leadership Award 2025</div>
             <p class="se-rec-desc">Nominated for the YK Leadership Award 2025 — national recognition that the work begun with cans and seedlings is now changing lives at scale.</p>
           </div>
@@ -717,4 +732,5 @@
   </script>
 
 </body>
+
 </html>
